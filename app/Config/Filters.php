@@ -2,10 +2,13 @@
 
 namespace Config;
 
-use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
-use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
+use Myth\Auth\Filters\RoleFilter;
+use CodeIgniter\Config\BaseConfig;
+use Myth\Auth\Filters\LoginFilter;
+use CodeIgniter\Filters\DebugToolbar;
+use Myth\Auth\Filters\PermissionFilter;
 
 class Filters extends BaseConfig
 {
@@ -19,6 +22,9 @@ class Filters extends BaseConfig
         'csrf'     => CSRF::class,
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
+        'login'      => LoginFilter::class,
+        'role'       => RoleFilter::class,
+        'permission' => PermissionFilter::class,
     ];
 
     /**
@@ -31,6 +37,7 @@ class Filters extends BaseConfig
         'before' => [
             // 'honeypot',
             // 'csrf',
+            'login'
         ],
         'after' => [
             'toolbar',
