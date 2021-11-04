@@ -13,8 +13,9 @@ class Home extends BaseController
     {
         return view('auth/register');
     }
-    public function user()
-    {
-        return view('user/index');
-    }
+    // public function user()
+    // {
+    //     $data['title'] = 'User';
+    //     return view('user/index', $data);
+    // }
 }
