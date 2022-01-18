@@ -23,7 +23,6 @@
 </head>
 
 <body class="bg-gradient-primary">
-    
     <?= $this->renderSection('content'); ?>
 
     <!-- Bootstrap core JavaScript-->

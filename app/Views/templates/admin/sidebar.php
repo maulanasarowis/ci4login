@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3"></div>
 </a>
 
 <?php if (in_groups('admin')) : ?>
@@ -14,39 +14,33 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        User Profile
+        Management
     </div>
 
     <!-- Nav Item - User List -->
-    <li class="nav-item">
+    <li class="nav-item <?= uri_string() == '/' ? 'active':'' ?>">
+        <a class="nav-link" href="#>">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+    <li class="nav-item <?= uri_string() == 'admin' ? 'active':'' ?>">
         <a class="nav-link" href="<?= base_url('admin'); ?>">
             <i class="fas fa-users"></i>
             <span>User List</span></a>
     </li>
+    <li class="nav-item <?= uri_string() == 'kamar' ? 'active':'' ?>">
+        <a class="nav-link" href="<?= base_url('kamar'); ?>">
+            <i class="fas fa-users"></i>
+            <span>Daftar Kamar</span></a>
+    </li>
+    <li class="nav-item <?= uri_string() == 'transaksi' ? 'active':'' ?>">
+        <a class="nav-link" href="<?= base_url('transaksi'); ?>">
+            <i class="fas fa-users"></i>
+            <span>Daftar Transaksi</span></a>
+    </li>
 <?php endif; ?>
 <!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-    User Profile
-</div>
-
-<!-- Nav Item - My profile -->
-<li class="nav-item">
-    <a class="nav-link" href="<?= base_url('user'); ?>">
-        <i class="fas fa-user"></i>
-        <span>My Profile</span></a>
-</li>
-
-<!-- Nav Item - Tables -->
-<li class="nav-item">
-    <a class="nav-link" href="tables.html">
-        <i class="fas fa-edit"></i>
-        <span>Edit Profile</span></a>
-</li>
-
-<hr class="sidebar-divider">
+<!-- <hr class="sidebar-divider"> -->
 
 <li class="nav-item">
     <a class="nav-link" href="<?= base_url('logout'); ?>">

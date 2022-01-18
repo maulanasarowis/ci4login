@@ -36,6 +36,18 @@ $routes->get('/', 'User::index');
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
+
+$routes->get('/kamar', 'Kamar::index', ['filter' => 'role:admin']);
+$routes->get('/kamar/index', 'Kamar::index', ['filter' => 'role:admin']);
+$routes->get('/kamar/create', 'Kamar::create', ['filter' => 'role:admin']);
+$routes->get('/kamar/edit/(:segment)', 'Kamar::edit/$1', ['filter' => 'role:admin']);
+$routes->delete('/kamar/(:num)', 'Kamar::delete/$1', ['filter' => 'role:admin']);
+$routes->get('/kamar/(:any)', 'Kamar::detail/$1', ['filter' => 'role:admin']);
+
+$routes->get('/transaksi', 'Transaksi::index', ['filter' => 'role:admin']);
+$routes->get('/transaksi/index', 'Transaksi::index', ['filter' => 'role:admin']);
+$routes->get('/booking/(:any)', 'Transaksi::booking/$1');
+// $routes->get('/admin', 'Transaksi::index', ['filter' => 'role:admin', 'role:user' ]);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

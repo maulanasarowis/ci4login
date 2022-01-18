@@ -53,7 +53,7 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" name="remembering" class="custom-control-input" <?php if(old('remember')) : ?> checked <?php endif ?>>
-                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                                <label class="custom-control-label" for="customCheck">Ingat saya</label>
                                             </div>
                                         </div>
                                         <?php endif; ?>
@@ -75,7 +75,9 @@
                                             <a class="small" href="<?= route_to('register') ?>"><?=lang('Auth.needAnAccount')?></a>
                                         </div>
                                     <?php endif; ?>
-                                    
+                                    <div class="text-center">
+                                        <a class="small" href="<?= base_url('/'); ?>"">Kembali ke Home</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

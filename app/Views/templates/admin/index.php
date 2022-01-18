@@ -28,7 +28,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?= $this->include('templates/sidebar'); ?>
+        <?= $this->include('templates/admin/sidebar'); ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -38,7 +38,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?= $this->include('templates/topbar'); ?>
+                <?= $this->include('templates/admin/topbar'); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -49,7 +49,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?= $this->include('templates/footer'); ?>
+            <?= $this->include('templates/admin/footer'); ?>
             <!-- End of Footer -->
 
         </div>

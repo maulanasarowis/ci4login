@@ -45,10 +45,13 @@
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="login.html">Forgot Password?</a>
+                                            <a class="small" href="#">Lupa Password?</a>
                                         </div>
                                         <div class="text-center">
                                             <a class="small" href="<?= route_to('login') ?>"> <?=lang('Auth.alreadyRegistered')?> <?=lang('Auth.signIn')?> </a>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="small" href="<?= base_url('/'); ?>"">Kembali ke Home</a>
                                         </div>
                                     </div>
                                 </div>

@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://ci4login.test/';
+    public $baseURL = 'http://reservasi_hotel.test/';
 
     /**
      * --------------------------------------------------------------------------

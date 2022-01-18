@@ -1,4 +1,4 @@
-<?= $this->extend('templates/index'); ?>
+<?= $this->extend('templates/admin/index'); ?>
 
 <?= $this->section('content'); ?>   
     <div class="container-fluid">
@@ -15,7 +15,7 @@
                         <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title"><?= $user->username; ?></h5>
-                            <p class="card-text"><?= $user->email;; ?></p>
+                            <p class="card-text"><?= $user->email; ?></p>
                             <p class="card-text">
                                 <span class="badge badge-<?= ($user->name == 'admin') ? 'success' : 'warning' ?>"><?= $user->name; ?></span></p>
                             <a href="" class="btn btn-warning">Edit</a>
