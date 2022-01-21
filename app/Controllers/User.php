@@ -14,40 +14,51 @@ class User extends BaseController
     
     public function index()
     {
+        $currentPage = $this->request->getVar('page_kamar') ? $this->request->getVar('page_kamar') : 1;
+
+    
+        $kamar = $this->kamarModel;
+        
         $data = [
-            'title' => 'User',
-            'kamar' => $this->kamarModel->getKamar()
+            'title' => 'Home - Hotel Reservasi',
+            'kamar' => $kamar->paginate(3, 'kamar'),
+            'pager' =>  $this->kamarModel->pager,
+            'currentPage' =>  $currentPage
         ];
         return view('user/index', $data);
     }
 
     public function room()
     {
+        $keyword = $this->request->getVar('keyword');
+        // d($keyword);
+        if($keyword) {
+            $kamar = $this->kamarModel->search($keyword); 
+        } else {
+            $kamar = $this->kamarModel;
+        }
+        
         $data = [
-            'title' => 'Daftar Kamar',
-            'kamar' => $this->kamarModel->getKamar()
+            'title' => 'Kamar - Hotel Reservasi',
+            'kamar' => $kamar->paginate(9, 'kamar'),
         ];
-        // dd($data);
+
         return view('user/room', $data);
     }
     public function about()
     {
-        // $data['title'] = 'User';
-        return view('user/about');
+        $data['title'] = 'Tentang - Hotel Reservasi';
+        return view('user/about', $data);
     }
     public function facility()
     {
-        // $data['title'] = 'User';
-        return view('user/facility');
+        $data['title'] = 'Fasilitas - Hotel Reservasi';
+        return view('user/facility', $data);
     }
-    public function transaksi()
+    
+    public function success()
     {
-        $data['title'] = 'Pembayaran';
-        return view('user/transaksi', $data);
+        $data['title'] = 'Success - Transaksi Berhasil!';
+        return view('user/success', $data);
     }
-    // public function booking()
-    // {
-    //     // $data['title'] = 'User';
-    //     return view('user/booking');
-    // }
 }

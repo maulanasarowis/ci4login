@@ -101,13 +101,4 @@
       },
     },
   });
-
-  // datepicker
-  $(".datepicker").datepicker({
-    format: "yyyy-mm-dd",
-    autoclose: true,
-    todayHighlight: true,
-    showOnFocus: true,
-    // endDate: '0d'
-  });
 })(jQuery);

@@ -30,7 +30,7 @@
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <?php if (in_groups('admin')) : ?>
-                                    <a class="dropdown-item" href="<?= base_url('admin'); ?>">Dashboard</a>
+                                    <a class="dropdown-item" href="<?= base_url('dashboard'); ?>">Dashboard</a>
                                     <?php endif; ?>
                                     <a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>
                                 </div>

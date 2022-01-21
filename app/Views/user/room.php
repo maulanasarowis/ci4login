@@ -13,6 +13,12 @@
             </h1>
           </div>
           <div class="row g-4">
+            <form action="" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Masukkan keyword pencarian..." name="keyword">
+                    <button class="btn btn-primary text-light" type="submit" name="submit">Cari</button>
+                </div>
+            </form>
             <?php foreach ($kamar as $c) : ?>
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <div class="room-item shadow rounded overflow-hidden">
@@ -53,9 +59,8 @@
                     <!-- <a class="btn btn-sm btn-primary rounded py-2 px-4" href=""
                         >View Detail</a
                     > -->
-                    <a class="btn btn-primary rounded py-2 px-4 text-capitalize text-light" href="<?= base_url('booking/' . $c['slug']); ?>"
-                        >Pesan Sekarang</a
-                    >
+                    <a class="btn btn-primary rounded py-2 px-4 text-capitalize text-light" href="<?= logged_in('user') ? base_url('booking/' . $c['slug']) : base_url('login'); ?>">Pesan Sekarang</a>
+                    <!--  -->
                     </div>
                 </div>
               </div>

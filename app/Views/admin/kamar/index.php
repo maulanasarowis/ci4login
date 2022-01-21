@@ -24,7 +24,7 @@
                     <tr>
                     <th scope="row"><?= $i++; ?></th>
                     <td><?= $b['jenis_kamar']; ?></td>
-                    <td><?= $b['harga']; ?>K/Malam</td>
+                    <td><?= number_format($b['harga']) ?> /Malam</td>
                     <td>
                         <a href="<?= base_url('kamar/' . $b['slug']); ?>" class="btn btn-info">Detail</a>
                     </td>

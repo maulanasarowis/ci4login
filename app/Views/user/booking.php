@@ -11,6 +11,7 @@
             
         </div>
         <div class="row g-5">
+            <small><a href="/">&laquo; kembali ke Home</a></small>
             <div class="col-lg-6">
                 <div class="row g-3">
                     <div class="col-6 text-end">
@@ -39,80 +40,100 @@
             </div>
             <div class="col-lg-6">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form action="" method="POST">
-                        
+                    <!-- <ssmall><a href="/">&laquo; kembali ke Home</a></ssmall> -->
+                    <form action="/booking/save" method="POST" enctype="multipart/form-data">
+                        <?= csrf_field(); ?>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input
-                                    type="text"
-                                    class="form-control"
-                                    id="jenis_kamar"
-                                    name="jenis_kamar"
-                                    value="<?= $kamar['jenis_kamar'] ?>" disabled
-                                    />
+                                    <input type="text" class="form-control" id="jenis_kamar" name="jenis_kamar" value="<?= $kamar['jenis_kamar'] ?>" disabled />
                                     <label for="jenis_kamar">Tipe Kamar</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input
-                                    type="text"
-                                    class="form-control"
-                                    id="harga"
-                                    name="harga"
-                                    value="<?= $kamar['harga'] ?>K" disabled
-                                    />
+                                    <input type="text" class="form-control" id="harga" name="harga" value="Rp.<?= number_format($kamar['harga']) ?>" disabled />
                                     <label for="harga">Harga per malam</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-floating date" data-target-input="nearest">
-                                    <input
-                                    type="text"
-                                    class="form-control datepicker"
-                                    
-                                    data-provide="datepicker"
-                                    name="checkin"
-                                    />
-                                    <label for="checkin">Check In</label>
+                                <div class="form-floating text-success">
+                                    <input type="text" class="form-control" id="tgl_masuk" name="tgl_masuk" data-provide="datepicker" onblur="diff();" onkeydown="return false" autofocus/>
+                                    <label for="tgl_masuk">Check In</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-floating date" data-target-input="nearest">
-                                    <input
-                                    type="text"
-                                    class="form-control datepicker"
-                                    
-                                    data-provide="datepicker"
-                                    name="checkout"
-                                    />
-                                    <label for="checkout">Check Out</label>
+                                <div class="form-floating date text-success">
+                                    <input type="text" class="form-control" id="tgl_keluar" name="tgl_keluar" data-provide="datepicker" onblur="diff();" onkeydown="return false" autofocus/>
+                                    <label for="tgl_keluar">Check Out</label>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                
-                                <button type="submit" class="btn btn-primary text-capitalize text-light w-100" name="check">Check</button>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="durasi" name="durasi" onkeydown="return false"/>
+                                    <label for="durasi">Lama Menginap</label>
+                                </div>
                             </div>
-                            <small><a href="/">&laquo; kembali ke Home</a></small>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="total_harga" name="total_harga" onkeydown="return false"/>
+                                    <label for="total_harga">Total Harga</label>
+                                </div>
+                            </div>
+                            <!-- <input type="text" id="txt1"  onkeyup="sum();"/>
+                            <input type="text" id="txt2"  onkeyup="sum();"/> -->
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary text-capitalize text-light w-100">Bayar</button>
+                            </div>
+                            
                         </div>
                     </form>
                 </div>
-                <div class="card-footer text-muted">
-                    <?php
-                        if(isset($_POST["check"])){
-                            $tgl1=$_POST['checkin'];
-                            $tgl2=$_POST['checkout'];
-                            $datetime1 = new DateTime($tgl1);
-                            $datetime2 = new DateTime($tgl2);
-                            $difference = $datetime2->diff($datetime1);
-                            echo "Lama menginap : ". $difference->d ." Hari";
-                        }
-                    ?>
-                </div>
+                <!-- <div class="card-footer text-muted wow fadeInUp mt-5 border-0" data-wow-delay="0.6s">
+                    <input class="text-text-gray-900" id="selisih" disabled/>
+                    <input class="text-text-gray-900" id="durasi"/>
+                </div> -->
             </div>
         </div>
         </div>
     </div>
+    
     <!-- Service End -->
-<?= $this->endSection(); ?> 
+    <script>
+        function diff(){
+            const oneDay = 24 * 60 * 60 * 1000;
+            let date1 = document.getElementById('tgl_masuk').value;
+            let date2 = document.getElementById('tgl_keluar').value;
+            let firstDateParts = date1.split('/');
+            let secondDateParts = date2.split('/');
+
+            let firstDate = new Date(firstDateParts[2], (firstDateParts[0] - 0), firstDateParts[1]);
+            let secondDate = new Date(secondDateParts[2], (secondDateParts[0] - 0), secondDateParts[1]);
+        
+            // // hitung perbedaan waktu dari dua tanggal
+            const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+            if (!isNaN(diffDays)) {
+                document.getElementById('durasi').value = `${diffDays} hari`;
+            }
+
+            let harga = document.getElementById('harga').value;
+            const numHarga = harga.replace(/[Rp.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+            const result = parseInt(numHarga) * parseInt(diffDays);
+            // proses format number koma
+            // const result = new Intl.NumberFormat().format(count);
+            if (!isNaN(result)) {
+                document.getElementById('total_harga').value = `Rp.${new Intl.NumberFormat().format(result)}`;
+            }
+        }
+
+        // function sum() {
+        //     let txtFirstNumberValue = document.getElementById('txt1').value;
+        //     let txtSecondNumberValue = document.getElementById('txt2').value;
+        //     let result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+        //     if (!isNaN(result)) {
+        //         document.getElementById('durasi').value = result;
+        //         console.log(result);
+        //     }
+        // }
+    </script>
+<?= $this->endSection(); ?>

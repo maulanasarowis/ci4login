@@ -16,7 +16,7 @@ class Kamar extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Daftar Kamar',
+            'title' => 'Kamar List - Hotel Reservasi Admin',
             'kamar' => $this->kamarModel->getKamar()
         ];
         return view('admin/kamar/index', $data);
@@ -25,7 +25,7 @@ class Kamar extends BaseController
     public function detail($slug)
     {
         $data = [
-            'title' => 'Detail Kamar',
+            'title' => 'Detail Kamar - Hotel Reservasi Admin',
             'kamar' => $this->kamarModel->getKamar($slug)
         ];
 
@@ -39,7 +39,7 @@ class Kamar extends BaseController
     public function create()
     {
         $data = [
-            'title' => 'Form Tambah Data Kamar',
+            'title' => 'Tambah data - Hotel Reservasi Admin',
             'validation' => \Config\Services::validation()
         ];
 
@@ -81,7 +81,7 @@ class Kamar extends BaseController
     public function edit($slug)
     {
         $data = [
-            'title' => 'Form Ubah Data',
+            'title' => 'Uabah Data - Hotel Reservasi Admin',
             'validation' => \Config\Services::validation(),
             'kamar' => $this->kamarModel->getKamar($slug)
         ];

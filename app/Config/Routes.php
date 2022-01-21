@@ -46,8 +46,7 @@ $routes->get('/kamar/(:any)', 'Kamar::detail/$1', ['filter' => 'role:admin']);
 
 $routes->get('/transaksi', 'Transaksi::index', ['filter' => 'role:admin']);
 $routes->get('/transaksi/index', 'Transaksi::index', ['filter' => 'role:admin']);
-$routes->get('/booking/(:any)', 'Transaksi::booking/$1');
-// $routes->get('/admin', 'Transaksi::index', ['filter' => 'role:admin', 'role:user' ]);
+$routes->get('/booking/(:segment)', 'Transaksi::booking/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

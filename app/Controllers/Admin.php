@@ -13,7 +13,7 @@ class Admin extends BaseController
 
     public function index()
     {
-        $data['title'] = 'User List';
+        $data['title'] = 'User List - Hotel Reservasi Admin';
         // $users = new \Myth\Auth\Models\UserModel();
         // $data['users'] = $users->findAll();
 
@@ -30,7 +30,7 @@ class Admin extends BaseController
 
     public function detail($id = 0)
     {
-        $data['title'] = 'Detail User';
+        $data['title'] = 'Detail User - Hotel Reservasi Admin';
 
         $this->builder->select('users.id as userid, username, email, user_image, fullname, name');
         $this->builder->join('auth_groups_users','auth_groups_users.user_id = users.id');

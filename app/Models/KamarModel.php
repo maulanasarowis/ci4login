@@ -18,4 +18,17 @@ class KamarModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+
+    // pencarian
+    public function search($keyword)
+    {
+        return $this->table('kamar')->like('jenis_kamar', $keyword);
+    }
+
+    public function room_count()
+    {
+        $builder = $this->db->table('kamar');
+        return $builder->countAll();
+    }
+
 }

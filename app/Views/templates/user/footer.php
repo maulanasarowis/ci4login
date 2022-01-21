@@ -22,8 +22,7 @@
             Kontak
             </h6>
             <p class="mb-2">
-            <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York,
-            USA
+            <i class="fa fa-map-marker-alt me-3"></i>Riau
             </p>
             <p class="mb-2">
             <i class="fa fa-phone-alt me-3"></i>+012 345 67890

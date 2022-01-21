@@ -18,18 +18,18 @@
                     <th scope="col">Tanggal Keluar</th>
                     <th scope="col">Total Harga</th>
                     <!-- <th scope="col">Aksi</th> -->
-                    </tr>
+                    </tr> 
                 </thead>
                 <tbody>
                     <?php $i=1; ?>
-                    <?php foreach ($transaksi as $d) : ?>
+                    <?php foreach ($transaksi as $d) : ?> 
                     <tr>
                     <th scope="row"><?= $i++; ?></th>
-                    <td><?= $d->username; ?></td>
-                    <td><?= $d->jenis_kamar; ?></td>
-                    <td><?= $d->tgl_masuk; ?></td>
-                    <td><?= $d->tgl_keluar; ?></td>
-                    <td><?= $d->total_harga; ?></td>
+                    <td>User</td>
+                    <td>Standar</td>
+                    <td><?= $d['tgl_masuk']; ?></td>
+                    <td><?= $d['tgl_keluar']; ?></td>
+                    <td><?= $d['total_harga']; ?></td>
                     <!-- <td>
                         <a href="" class="btn btn-info">Detail</a>
                     </td> -->

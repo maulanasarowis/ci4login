@@ -18,8 +18,8 @@
     </div>
 
     <!-- Nav Item - User List -->
-    <li class="nav-item <?= uri_string() == '/' ? 'active':'' ?>">
-        <a class="nav-link" href="#>">
+    <li class="nav-item <?= uri_string() == 'dashboard' ? 'active':'' ?>">
+        <a class="nav-link" href="<?= base_url('dashboard'); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>

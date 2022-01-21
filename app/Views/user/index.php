@@ -166,6 +166,7 @@
         </h1>
         </div>
         <div class="row g-4">
+            <?php $i=1 + (3 * ($currentPage - 1)); ?>
             <?php foreach ($kamar as $c) : ?>
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="room-item shadow rounded overflow-hidden">
@@ -173,7 +174,7 @@
                     <img class="img-fluid" src="<?= base_url(); ?>/img/room-1.jpg" alt="" />
                     <small
                     class="position-absolute start-0 top-100 translate-middle-y bg-danger text-white rounded py-1 px-3 ms-4"
-                    ><?= $c['harga']; ?>K/Malam</small
+                    >Rp.<?= number_format($c['harga']) ?>/Malam</small
                     >
                 </div>
                 <div class="p-4 mt-2">
@@ -206,14 +207,13 @@
                     <!-- <a class="btn btn-sm btn-primary rounded py-2 px-4" href=""
                         >View Detail</a
                     > -->
-                    <a class="btn btn-primary rounded py-2 px-4 text-capitalize text-light" href="<?= base_url('booking/' . $c['slug']); ?>"
-                        >Pesan Sekarang</a
-                    >
+                        <a class="btn btn-primary rounded py-2 px-4 text-capitalize text-light" href="<?= logged_in('user') ? base_url('booking/' . $c['slug']) : base_url('login'); ?>">Pesan Sekarang</a>
                     </div>
                 </div>
                 </div>
             </div>
             <?php endforeach; ?>
+            <?= $pager->links('kamar', 'kamar_pagination') ?>
         </div>
     </div>
     </div>
